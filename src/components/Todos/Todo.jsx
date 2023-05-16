@@ -5,7 +5,7 @@ const Todo = (props) => {
   return (
     <div
       className={style.Todo}
-      onClick={() => props.onDoubleClick(props.id)}
+      onDoubleClick={() => props.onDoubleClick(props.id)}
     >
       <div className={style.Todo__icon}>
         <svg

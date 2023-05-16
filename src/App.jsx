@@ -7,19 +7,23 @@ import generateID from './utils/idGenerator'
 function App() {
   const [inputTxtFromForm, setInputTxtFromForm] = useState([])
 
-  const handleTodoDeletion = (id) => {
+  const addTodoHandler = (txt) => {
+    setInputTxtFromForm([...inputTxtFromForm, { text: txt, id: generateID(7) }])
+  }
+
+  const todoDeletionHandler = (id) => {
     const arr = [...inputTxtFromForm].filter((item) => item.id !== id)
     setInputTxtFromForm(arr)
   }
 
-  const takeInputFromTodoForm = (txt) => {
-    setInputTxtFromForm([...inputTxtFromForm, { text: txt, id: generateID(7) }])
-  }
-
   return (
     <div className="App">
-      <TodoForm onSubmit={takeInputFromTodoForm} />
-      <TodoList onDoubleClick={handleTodoDeletion}>{inputTxtFromForm}</TodoList>
+      <h1>ToDo App</h1>
+      <TodoForm onSubmit={addTodoHandler} />
+      <TodoList
+        onDoubleClick={todoDeletionHandler}
+        todos={inputTxtFromForm}
+      ></TodoList>
     </div>
   )
 }
