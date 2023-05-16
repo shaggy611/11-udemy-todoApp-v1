@@ -1,0 +1,29 @@
+.Todo {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 10px;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: cursive;
+  background-color: #2f5767;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+.Todo__icon {
+  width: 20px;
+  margin: 0 20px;
+}
+
+.Todo__icon > svg {
+  fill: #e76f51;
+}
+
+.Todo__text {
+  color: #e9c46a;
+}
