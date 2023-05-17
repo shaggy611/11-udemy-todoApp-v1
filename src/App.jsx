@@ -1,19 +1,23 @@
-import './App.css'
 import { useState } from 'react'
+import { v4 as generateID } from 'uuid'
+import './App.css'
 import TodoForm from './components/Todos/TodoForm'
 import TodoList from './components/Todos/TodoList'
-import generateID from './utils/idGenerator'
+// import generateID from './utils/idGenerator'
 
 function App() {
-  const [inputTxtFromForm, setInputTxtFromForm] = useState([])
+  const [todoText, setTodoText] = useState([])
 
   const addTodoHandler = (txt) => {
-    setInputTxtFromForm([...inputTxtFromForm, { text: txt, id: generateID(7) }])
+    setTodoText([
+      ...todoText,
+      { text: txt, id: generateID(7), isCompleted: false },
+    ])
   }
 
   const todoDeletionHandler = (id) => {
-    const arr = [...inputTxtFromForm].filter((item) => item.id !== id)
-    setInputTxtFromForm(arr)
+    const arr = [...todoText].filter((item) => item.id !== id)
+    setTodoText(arr)
   }
 
   return (
@@ -22,7 +26,7 @@ function App() {
       <TodoForm onSubmit={addTodoHandler} />
       <TodoList
         onDoubleClick={todoDeletionHandler}
-        todos={inputTxtFromForm}
+        todos={todoText}
       ></TodoList>
     </div>
   )

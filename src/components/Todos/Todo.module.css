@@ -20,8 +20,8 @@
   margin: 0 20px;
 }
 
-.Todo__icon > svg {
-  fill: #e76f51;
+.Todo__list_icon {
+  color: #e76f51;
 }
 
 .Todo__text {
