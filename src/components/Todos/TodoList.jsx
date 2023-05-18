@@ -1,17 +1,20 @@
-import { useState } from 'react'
 import Todo from './Todo'
 import style from './TodoList.module.css'
 
-const TodoList = ({ todos, onDoubleClick }) => {
+const TodoList = ({ todos, deleteTodo, onTodoChecked }) => {
   return (
-    <div className="TodoList">
-      {!todos.length && <h2 className={style.TodoList__empty}>Todo list is empty</h2>}
+    <div className={style.TodoList}>
+      {!todos.length && (
+        <h2 className={style.TodoList__empty}>Todo list is empty</h2>
+      )}
       {todos.map((item) => {
         return (
           <Todo
             key={item.id}
             id={item.id}
-            onDoubleClick={onDoubleClick}
+            done={item.isCompleted}
+            deleteTodo={deleteTodo}
+            onTodoChecked={onTodoChecked}
           >
             {item.text}
           </Todo>
