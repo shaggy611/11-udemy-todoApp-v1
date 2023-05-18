@@ -50,7 +50,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>ToDo App</h1>
+      <h1 className="App__title">ToDo App</h1>
       <TodoForm onSubmit={addTodoHandler} />
       {todoText.length !== 0 && (
         <TodoActions
@@ -64,6 +64,12 @@ function App() {
         onTodoChecked={todoCheckedHandler}
         todos={todoText}
       />
+
+      {!!completedTodoCount && (
+        <h2 className="Todo__completed_count">{`You have ${completedTodoCount} completed todo${
+          completedTodoCount <= 1 ? '' : 's'
+        } `}</h2>
+      )}
     </div>
   )
 }

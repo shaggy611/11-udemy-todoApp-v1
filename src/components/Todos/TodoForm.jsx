@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Button from '../UI/Button'
 import style from './TodoForm.module.css'
 
 const TodoForm = ({ onSubmit }) => {
@@ -25,12 +26,13 @@ const TodoForm = ({ onSubmit }) => {
           className={style.TodoForm__input}
           onInput={handleInput}
         />
-        <button
+        <Button
           type="submit"
           className={style.TodoForm__button}
+          title="Add todo"
         >
           Add todo
-        </button>
+        </Button>
       </form>
     </div>
   )
